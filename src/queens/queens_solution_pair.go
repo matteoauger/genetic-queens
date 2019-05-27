@@ -24,24 +24,26 @@ func (pair QueenSolutionPair) Crossover() QueenSolution {
 		blines[pair.B.Board[i]] = i
 	}
 
-	k1 := rand.Intn(n)
-	k2 := rand.Intn(n)
-	for k1 == k2 { // tq k1 = k2, on tire à nouveau k2
-		k2 = rand.Intn(n)
+	// on tire deux index au hasard
+	rand1 := rand.Intn(n)
+	rand2 := rand.Intn(n)
+	for rand1 == rand2 { // tq rand1 = rand2, on tire à nouveau rand2 (afin d'avoir deux index bien différents)
+		rand2 = rand.Intn(n)
 	}
 
-	var b int = int(math.Min(float64(k1), float64(k2)))
-	var e int = int(math.Max(float64(k1), float64(k2)))
-
-	lines := make([]int, e-b)
+	// on choisit le min et le max afin de distinguer l'index de début de l'index de fin
+	var begin int = int(math.Min(float64(rand1), float64(rand2)))
+	var end int   = int(math.Max(float64(rand1), float64(rand2)))
+	
+	lines := make([]int, end-begin)
 	for i := 0; i < len(lines); i++ {
-		lines[i] = blines[pair.A.Board[b+i]]
+		lines[i] = blines[pair.A.Board[begin+i]]
 	}
-
+	// tri du tableau
 	sort.Ints(lines)
 
 	for i := 0; i < len(lines); i++ {
-		childBoard[lines[i]] = pair.A.Board[b+i]
+		childBoard[lines[i]] = pair.A.Board[begin+i]
 	}
 
 	return CreateSolution(childBoard)

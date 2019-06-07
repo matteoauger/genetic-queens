@@ -1,6 +1,7 @@
 # Rapport TP IA Algorithmes génétiques
 > Mattéo AUGER (numéro étudiant : 20150982)
 
+# Programme d'algorithme génétique 
 ## Préambule
 
 ### Compiler le programme
@@ -36,3 +37,16 @@ Pour exécuter le benchmark : `./bin/genetic_queens.x benchmark`
 
 On observe ici que le temps d'exécution monte de plus en plus jusqu'à 20 secondes pour un échiquier de taille 50x50 pour l'algorithme génétique, alors que le recuit simulé trouve cette solution en à peine 35ms.
 Cette marge de performances est due au fait que l'algorithme génétique est peu adapté au problème des n-reines à cause de la définition d'un gène et de l'opération de croisement entre deux individus. En effet, dans le problème des n reines un gène n'est pas exprimé uniquement par la position d'une reine ce dernier dépend directement de la position des autres reines car la fonction de fitness joue sur le nombre de reines en prises. L'algorithme nécessite beaucoup de générations et stagne facilement ce qui engendre un temps d'exécution relativement long. Le recuit simulé en revanche permet de sortir rapidement de ces "stagnations" afin de mieux cibler l'optimum.
+
+# Résolution du problème
+
+## Représentation du triplet
+
+Soit `T = (I, O, B)` : 
+* `I`: ensemble des états initiaux
+* `O`: ensemble des opérateurs
+* `B`: ensemble des états finaux
+
+## Système de résolution du problème
+
+## Algorithme A* 

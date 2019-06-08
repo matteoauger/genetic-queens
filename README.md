@@ -29,7 +29,16 @@ Le second mode permet d'effectuer un benchmark de l'algorithme génétique de 10
 Le résultat sera écrit dans le fichier "donnees.txt".
 Pour exécuter le benchmark : `./bin/genetic_queens.x benchmark`
 
-## Analyse des résultats
+## Explication de l'algorithme
+### Représentation du plateau
+
+### Principe de l'algorithme
+
+#### Sélection
+#### Mutation
+#### Croisement
+
+## Résultats
 
 ### Résultat benchmark algorithme génétique vs recuit simulé
 
@@ -41,12 +50,22 @@ Cette marge de performances est due au fait que l'algorithme génétique est peu
 # Résolution du problème
 
 ## Représentation du triplet
+La représentation d'un échiquier est **la même que pour l'algorithme**.
 
 Soit `T = (I, O, B)` : 
 * `I`: ensemble des états initiaux
-* `O`: ensemble des opérateurs
+* `O`: ensemble des opérateurs : **opérateur de permutation**
 * `B`: ensemble des états finaux
 
+On applique la fonction `enPrise(plateau)` sur chaque solution afin d'orienter la recherche. L'objectif est d'atteindre 0.
+
+### Pour un exemple de N = 4
+
+`I = {[ 1, 2, 3, 4 ]}` I est égal à un plateau dont les reines sont disposées en diagonale.
+`O = {Permutation()}` O est égal à une opération de permutation de deux reines.
+`P = {[ 2, 4, 1, 3 ], [ 3, 4, 1, 2 ]}` P est égal aux solutions pour le N donné. Une solution est représentée par `Enprise(plateau) = 0`.
+
 ## Système de résolution du problème
+
 
 ## Algorithme A* 

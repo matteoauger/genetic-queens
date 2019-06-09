@@ -1,5 +1,5 @@
 set terminal png 
-set output "img/result.png"
+set output "../img/result.png"
 
 set xlabel "Taille échiquier (N)"
 set ylabel "Temps d'exécution (secondes)"
